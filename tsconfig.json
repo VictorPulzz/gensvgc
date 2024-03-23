@@ -1,0 +1,38 @@
+{
+  "files": ["lib/index.ts"],
+  "include": ["./lib/**/*"],
+  "exclude": ["dist", "node_modules"],
+  "compilerOptions": {
+    // Language and Environment
+    "target": "ES6",
+
+    // Modules
+    "baseUrl": ".",
+    "rootDir": "./lib",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
+    // Emit
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationDir": "dist",
+    "removeComments": true,
+
+    // Type checking
+    "strict": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+
+    // Completeness
+    "skipLibCheck": true,
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

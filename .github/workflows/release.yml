@@ -1,0 +1,54 @@
+name: Release
+
+#on:
+#  push:
+#    branches:
+#      - master
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Reset changes from integration unit tests
+        run: git reset --hard HEAD
+
+      - name: Build
+        run: npm run build
+
+      - name: Type check
+        run: npm run check-types
+
+      - name: Code linting check
+        run: npm run lint
+
+      - name: Code formatting
+        run: npm run prettier
+
+#      - name: Commit formatting check
+#        uses: wagoid/commitlint-github-action@v5
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx semantic-release

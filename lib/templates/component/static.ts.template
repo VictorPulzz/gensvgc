@@ -1,0 +1,21 @@
+{nextUseClient}
+import React from "react";
+{rnImport}
+
+{svgTypesAndComponentImports}
+
+export type IconsType = SvgIconsType;
+
+export interface IconProps extends {extendType} {
+  name: IconsType;
+}
+
+export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
+  const IconComponent = getSvgComponent(name);
+
+  if (IconComponent) {
+    return <IconComponent {...props} />;
+  }
+
+  return <></>;
+};

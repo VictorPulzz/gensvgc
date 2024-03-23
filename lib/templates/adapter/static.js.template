@@ -1,0 +1,10 @@
+{svgImports}
+
+const icons = {
+  {svgIcons}
+}
+
+export function getSvgComponent(name) {
+  return icons[name]
+}
+

@@ -1,0 +1,18 @@
+{nextUseClient}
+import React from "react";
+
+{svgTypesAndComponentImports}
+
+export const Icon = ({ name, ...props }) => {
+  const [IconComponent, setIconComponent] = React.useState(null);
+
+  React.useEffect(() => {
+    getSvgComponent(name).then(res => setIconComponent(res));
+  }, [name]);
+
+  if (IconComponent) {
+    return <IconComponent.default {...props} />;
+  }
+
+  return <></>;
+};

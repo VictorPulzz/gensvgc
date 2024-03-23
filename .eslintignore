@@ -1,0 +1,10 @@
+/.vscode
+/.idea
+node_modules
+.prettierignore
+.prettierrc.js
+devmoji.config.js
+commitlint.config.js
+.eslintrc.js
+lint-staged.config.js
+release.config.js

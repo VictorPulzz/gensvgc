@@ -1,0 +1,11 @@
+export const getSvgComponent = async (name) => {
+  let svgComponent = null;
+
+  switch (name) {
+    {svgSwitch}
+    default:
+      break;
+  }
+
+  return svgComponent;
+};

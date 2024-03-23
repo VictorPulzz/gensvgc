@@ -1,0 +1,14 @@
+import React from "react";
+
+{svgImports}
+
+const icons = {
+  {svgIcons}
+}
+
+export type SvgIconsType = keyof typeof icons;
+
+export function getSvgComponent(name: SvgIconsType): React.FC<React.SVGProps<SVGSVGElement>> {
+  return icons[name]
+}
+
