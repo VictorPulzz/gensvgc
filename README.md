@@ -1,4 +1,4 @@
-# 📚Generation react icon component
+# 📚Generation react / react-native icon component
 
 [![npm version](https://img.shields.io/npm/v/gensvgc.svg?style=flat)](https://www.npmjs.com/package/gensvgc)
 
