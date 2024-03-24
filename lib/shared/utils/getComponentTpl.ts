@@ -1,6 +1,6 @@
 import path from "path";
 
-import { TPL_PATHS, DEFAULT_COMPONENT_FILE_NAME } from "../const";
+import { DEFAULT_COMPONENT_FILE_NAME, TPL_PATHS } from "../const";
 import { CoreOptions } from "../types";
 
 export function getComponentTpl({

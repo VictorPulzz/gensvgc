@@ -1,10 +1,9 @@
-{nextUseClient}
-import React from "react";
-{rnImport}
+{nextUseClient}import React from "react";
+{rnTypesImport}
 
 {svgTypesAndComponentImports}
 
-export type IconsType = SvgIconsType;
+export type IconsType = {svgIconsType};
 
 export interface IconProps extends {extendType} {
   name: IconsType;

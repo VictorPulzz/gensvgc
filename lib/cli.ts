@@ -11,31 +11,37 @@ const { _: command, ...options } = yargs
   )
   .example(
     `$0 ${DEFAULT_SVG_PATH}`,
-    `All .svg files at any level in the ${DEFAULT_SVG_PATH} directory and save default folder ${DEFAULT_COMPONENT_PATH}.\n`,
+    `All .svg files at any level in the ${DEFAULT_SVG_PATH} directory and save default folder ${DEFAULT_COMPONENT_PATH}.`,
   )
   .example(
     `$0 ${DEFAULT_SVG_PATH} --watch`,
-    `All .svg files at any level in the ${DEFAULT_SVG_PATH} directory and save default folder ${DEFAULT_COMPONENT_PATH}.\n`,
+    `All .svg files at any level in the ${DEFAULT_SVG_PATH} directory and save default folder ${DEFAULT_COMPONENT_PATH}.`,
   )
   .example(
     `$0 ${DEFAULT_SVG_PATH} --template=path/to/template`,
-    "Generate svg component by template.\n\n",
+    "Generate svg component by template.",
   )
   .example(
     `$0 ${DEFAULT_SVG_PATH} --dynamic`,
-    "Generate svg component with dynamic load svg files.\n\n",
+    "Generate svg component with dynamic load svg files.",
   )
-  .example(`$0 ${DEFAULT_SVG_PATH} --typescript`, "Generate component with typescript.\n")
+  .example(`$0 ${DEFAULT_SVG_PATH} --typescript`, "Generate component with typescript.")
   .example(
     `$0 ${DEFAULT_SVG_PATH} --after="npm run eslint"`,
-    "Can be used to call custom commands.\n",
+    "Can be used to call custom commands.",
   )
   .example(
     `$0 ${DEFAULT_SVG_PATH} --nameFileComp="${DEFAULT_COMPONENT_FILE_NAME}"`,
-    "Pass custom name for component\n",
+    "Pass custom name for component",
   )
-  .example(`$0 ${DEFAULT_SVG_PATH} --skipInitial`, "Skip initial generation.\n")
+  .example(`$0 ${DEFAULT_SVG_PATH} --skipInitial`, "Skip initial generation.")
   .demandCommand(1)
+  .option("watch", {
+    alias: "w",
+    boolean: true,
+    type: "boolean",
+    describe: "Tracking svg files",
+  })
   .option("template", {
     alias: "t",
     string: true,
@@ -49,7 +55,6 @@ const { _: command, ...options } = yargs
     describe: "Generate component with dynamic load svg files.",
   })
   .option("typescript", {
-    alias: "s",
     boolean: true,
     type: "boolean",
     describe: "Generate component with typescript.",
@@ -67,7 +72,7 @@ const { _: command, ...options } = yargs
     describe: "Pass custom component name.",
   })
   .option("skipInitial", {
-    alias: "i",
+    alias: "s",
     boolean: true,
     type: "boolean",
     describe: "Skip initial generation.",

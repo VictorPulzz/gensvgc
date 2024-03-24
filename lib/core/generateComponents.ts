@@ -13,18 +13,20 @@ export async function generateComponents(
     if (builder === BuilderEnum.REACT_NATIVE) {
       generateData = generateData
         .replace("{extendType}", "SvgProps")
-        .replace("{rnImport}", "import { SvgProps } from 'react-native-svg';");
+        .replace("{rnTypesImport}", "import { SvgProps } from 'react-native-svg';");
     } else {
       generateData = generateData
         .replace("{extendType}", "React.SVGProps<SVGSVGElement>")
-        .replace("{rnImport}", "");
+        .replace("{rnTypesImport}", "");
     }
 
     if (typescript) {
-      generateData = generateData.replace(
-        "{svgTypesAndComponentImports}",
-        `import { getSvgComponent, SvgComponentType, SvgIconsType } from "./${DEFAULT_ADAPTER_FOLDER}/${adapterFileName}";`,
-      );
+      generateData = generateData
+        .replace(
+          "{svgTypesAndComponentImports}",
+          `import { getSvgComponent, SvgComponentType, SvgIconsType } from "./${DEFAULT_ADAPTER_FOLDER}/${adapterFileName}";`,
+        )
+        .replace("{svgIconsType}", "SvgIconsType");
     } else {
       generateData = generateData.replace(
         "{svgTypesAndComponentImports}",
@@ -33,7 +35,7 @@ export async function generateComponents(
     }
 
     if (builder === BuilderEnum.NEXT) {
-      generateData = generateData.replace("{nextUseClient}", '"use client";\n');
+      generateData = generateData.replace("{nextUseClient}", '"use client";\n\n');
     } else {
       generateData = generateData.replace("{nextUseClient}", "");
     }
