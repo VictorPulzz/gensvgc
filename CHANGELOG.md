@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/VictorPulzz/gensvgc/compare/v1.0.3...v1.0.4) (2024-03-25)
+
+
+### Bug Fixes
+
+* 🐛 add relative path inside generateAdapters.ts ([5f4515e](https://github.com/VictorPulzz/gensvgc/commit/5f4515e362c6f58c0df7a3468ab58b288998bae5))
+
 ## [1.0.3](https://github.com/VictorPulzz/gensvgc/compare/v1.0.2...v1.0.3) (2024-03-25)
 
 
