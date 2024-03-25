@@ -4,12 +4,12 @@ import path from "path";
 import { alerts, BuilderEnum, CoreOptions, FileObject } from "../shared";
 import { getGenericPaths } from "../shared/utils/getGenericPaths";
 
-function genSvgPath(relative: string, file: FileObject[string], isVite: boolean) {
+function genSvgPath(relative: string, file: FileObject[string], vitePostfix: string) {
   /**
    * Add postfix for handle vite-plugin-svgr package
    */
   const folderPathSvg = file.dir.split(path.sep).slice(1).join(path.sep);
-  return path.join(relative, folderPathSvg, file.base) + (isVite ? "?react" : "");
+  return path.join(relative, folderPathSvg, file.base) + vitePostfix;
 }
 
 export async function generateDynamicAdapter(
@@ -18,6 +18,7 @@ export async function generateDynamicAdapter(
   { typescript, builder }: CoreOptions,
 ) {
   const filesList = Object.entries(filesObject);
+  const vitePostfix = builder === BuilderEnum.VITE ? "?react" : "";
 
   const mappedSvgTypes = filesList
     .map(([, values]) => {
@@ -27,7 +28,7 @@ export async function generateDynamicAdapter(
 
   const mappedSvgSwitch = filesList
     .map(([, values]) => {
-      const svgPath = genSvgPath(relativeSvgPath, values, builder === BuilderEnum.VITE);
+      const svgPath = genSvgPath(relativeSvgPath, values, vitePostfix);
       return `
     case "${values.fileName}":
       svgComponent = await import("${svgPath}");
@@ -44,6 +45,8 @@ export async function generateDynamicAdapter(
 
     generateData = generateData.replace("{svgSwitch}", mappedSvgSwitch);
 
+    generateData = generateData.replace("{vitePostfix}", vitePostfix);
+
     await fs.writeFile(adapterFilePath, generateData, {
       encoding: "utf8",
       flag: "w",
@@ -59,10 +62,11 @@ export async function generateStaticAdapter(
   { builder }: CoreOptions,
 ) {
   const filesList = Object.entries(filesObject);
+  const vitePostfix = builder === BuilderEnum.VITE ? "?react" : "";
 
   const mappedSvgImports = filesList
     .map(([, values], index) => {
-      const svgPath = genSvgPath(relativeSvgPath, values, builder === BuilderEnum.VITE);
+      const svgPath = genSvgPath(relativeSvgPath, values, vitePostfix);
       return `import ${values.fileName} from "${svgPath}";${filesList.length - 1 !== index ? "\n" : ""}`;
     })
     .join("");

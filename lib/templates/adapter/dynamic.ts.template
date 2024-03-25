@@ -1,5 +1,5 @@
 export type SvgIconsType = {svgNames};
-export type SvgComponentType = typeof import("*.svg") | null;
+export type SvgComponentType = typeof import("*.svg{vitePostfix}") | null;
 
 export const getSvgComponent = async (
   name: SvgIconsType,
