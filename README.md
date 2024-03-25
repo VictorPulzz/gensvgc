@@ -26,6 +26,61 @@ npx gensvgc icons
 #### The only first required argument is the directory where all svg files are located. 
 #### The second argument is the directory where the component will be created.
 
+## Example flow
+
+Let's take for example a project on vite.
+
+### 1. Initialize project:
+
+```bash
+npx create vite my-vue-app
+```
+
+#### Select react:
+
+![./images/select-react.png](./images/select-react.png)
+
+#### Select typescript:
+
+![./images/select-typescript.png](./images/select-typescript.png)
+
+### 2. Next, since we are using vite we need to install `vite-plugin-svgr` so that svg can be imported as components:
+
+```bash
+npm i -D vite-plugin-svgr
+```
+
+And add package to `vite.config.js`
+
+### 3. Next, we install the gensvgc package:
+
+```bash
+npm i -D gensvgc
+```
+
+### 4. For ease of use, let's add a `.gensvgcrc.json` configuration file to the root of the project with the following parameters:
+
+```json
+{
+  "watch": false,
+  "typescript": true,
+  "dynamic": true
+}
+```
+
+### 5. The last step is to add the command to `package.json`:
+
+![./images/add-command.png](./images/add-command.png)
+
+Now when you run the command, a ready component with full typescript will appear:
+
+![./images/component.png](./images/component.png)
+
+And a special function with import:
+
+![./images/adapter.png](./images/adapter.png)
+
+That's all there is to it :confetti_ball:
 
 ## CLI Options
 
