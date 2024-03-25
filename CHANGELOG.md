@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/VictorPulzz/gensvgc/compare/v1.0.1...v1.0.2) (2024-03-25)
+
+
+### Bug Fixes
+
+* 🐛 add vite "?react" postfix to adapter ([50bb06b](https://github.com/VictorPulzz/gensvgc/commit/50bb06ba75e7793a71d9722840db02ebfdd7fbd8))
+
 ## [1.0.1](https://github.com/VictorPulzz/gensvgc/compare/v1.0.0...v1.0.1) (2024-03-25)
 
 
