@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/VictorPulzz/gensvgc/compare/v1.0.0...v1.0.1) (2024-03-25)
+
+
+### Bug Fixes
+
+* 🐛 add condition for dynamic types ([c8ee495](https://github.com/VictorPulzz/gensvgc/commit/c8ee495100710061ffe240d9cdd02d3b094c25e1))
+
 # 1.0.0 (2024-03-24)
 
 
