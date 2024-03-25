@@ -74,11 +74,58 @@ npm i -D gensvgc
 
 Now when you run the command, a ready component with full typescript will appear:
 
-![./images/component.png](./images/component.png)
+```tsx
+import React from "react";
+
+
+import { getSvgComponent, SvgComponentType, SvgIconsType } from "./__generated__/dynamic-adapter.ts";
+
+export type IconsType = SvgIconsType;
+
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
+  name: IconsType;
+}
+
+export const Icon: React.FC<IconProps> = ({ name, ...props }) => {
+  const [IconComponent, setIconComponent] = React.useState<SvgComponentType>(null);
+
+  React.useEffect(() => {
+    getSvgComponent(name).then(res => setIconComponent(res));
+  }, [name]);
+
+  if (IconComponent) {
+    return <IconComponent.default {...props} />;
+  }
+
+  return <></>;
+};
+```
 
 And a special function with import:
 
-![./images/adapter.png](./images/adapter.png)
+```ts
+export type SvgIconsType = "react" | "vite";
+export type SvgComponentType = typeof import("*.svg?react") | null;
+
+export const getSvgComponent = async (
+  name: SvgIconsType,
+): Promise<SvgComponentType> => {
+  let svgComponent = null;
+
+  switch (name) {
+    case "react":
+      svgComponent = await import("../../../icons/react.svg?react");
+      break;
+    case "vite":
+      svgComponent = await import("../../../icons/vite.svg?react");
+      break;
+    default:
+      break;
+  }
+
+  return svgComponent;
+};
+```
 
 That's all there is to it :confetti_ball:
 
