@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/VictorPulzz/gensvgc/compare/v1.0.2...v1.0.3) (2024-03-25)
+
+
+### Bug Fixes
+
+* 🐛 fix path for svg inside adapter ([27180bd](https://github.com/VictorPulzz/gensvgc/commit/27180bdf7fe90f4200f7a9a4d8578f6e2e74f286))
+
 ## [1.0.2](https://github.com/VictorPulzz/gensvgc/compare/v1.0.1...v1.0.2) (2024-03-25)
 
 
