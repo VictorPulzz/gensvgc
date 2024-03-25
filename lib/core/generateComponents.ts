@@ -5,7 +5,7 @@ import { getGenericPaths } from "../shared/utils/getGenericPaths";
 
 export async function generateComponents(
   { componentFilePath, componentTplPath, adapterFileName }: ReturnType<typeof getGenericPaths>,
-  { typescript, builder }: CoreOptions,
+  { typescript, builder, dynamic }: CoreOptions,
 ) {
   try {
     let generateData = await fs.readFile(componentTplPath, "utf8");
@@ -24,7 +24,7 @@ export async function generateComponents(
       generateData = generateData
         .replace(
           "{svgTypesAndComponentImports}",
-          `import { getSvgComponent, SvgComponentType, SvgIconsType } from "./${DEFAULT_ADAPTER_FOLDER}/${adapterFileName}";`,
+          `import { getSvgComponent, ${dynamic ? "SvgComponentType," : ""} SvgIconsType } from "./${DEFAULT_ADAPTER_FOLDER}/${adapterFileName}";`,
         )
         .replace("{svgIconsType}", "SvgIconsType");
     } else {
