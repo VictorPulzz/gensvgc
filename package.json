@@ -1,6 +1,6 @@
 {
   "name": "gensvgc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Victor Razdorov",
   "description": "Generating icon components for React and React Native using svg files",
   "keywords": [
