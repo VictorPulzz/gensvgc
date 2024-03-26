@@ -7,9 +7,9 @@ import { moduleExist } from "../moduleExist";
 export function necessaryLibChecker(builder: BuilderEnum) {
   if ([BuilderEnum.CRA, BuilderEnum.NEXT].includes(builder)) {
     /**
-     * Check if developer using @svgr/webpack
+     * Check if developer using @svgr/webpack or babel-plugin-inline-react-svg
      */
-    if (!moduleExist("@svgr/webpack") || !moduleExist("babel-plugin-inline-react-svg")) {
+    if (!moduleExist("@svgr/webpack") && !moduleExist("babel-plugin-inline-react-svg")) {
       throw new Error(
         "You need to install one of these libraries [@svgr/webpack | babel-plugin-inline-react-svg] to support svg as components",
       );
