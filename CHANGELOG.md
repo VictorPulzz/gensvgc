@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/VictorPulzz/gensvgc/compare/v1.0.4...v1.0.5) (2024-03-26)
+
+
+### Bug Fixes
+
+* 🐛 fix condition in necessaryLibChecker ([da4a051](https://github.com/VictorPulzz/gensvgc/commit/da4a051c80de9a9b26ce1f4309c3d6990739c6af))
+
 ## [1.0.4](https://github.com/VictorPulzz/gensvgc/compare/v1.0.3...v1.0.4) (2024-03-25)
 
 
