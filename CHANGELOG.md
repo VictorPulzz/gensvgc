@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/VictorPulzz/gensvgc/compare/v1.0.6...v1.0.7) (2024-04-04)
+
+
+### Bug Fixes
+
+* 🐛 small fix adapter: remove useless export type ([ac3afca](https://github.com/VictorPulzz/gensvgc/commit/ac3afca80f1dd7afe203e8211d3aa4c027b732ec))
+
 ## [1.0.6](https://github.com/VictorPulzz/gensvgc/compare/v1.0.5...v1.0.6) (2024-04-04)
 
 
