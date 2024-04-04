@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/VictorPulzz/gensvgc/compare/v1.0.5...v1.0.6) (2024-04-04)
+
+
+### Bug Fixes
+
+* 🐛 small fix for definition in builderChecker ([bfab240](https://github.com/VictorPulzz/gensvgc/commit/bfab240af95f2cafb10a2abe58eea4e1ad10bd60))
+
 ## [1.0.5](https://github.com/VictorPulzz/gensvgc/compare/v1.0.4...v1.0.5) (2024-03-26)
 
 
