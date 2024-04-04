@@ -8,7 +8,7 @@ const icons = {
 
 export type SvgIconsType = keyof typeof icons;
 
-export function getSvgComponent(name: SvgIconsType): React.FC<React.SVGProps<SVGSVGElement>> {
+export function getSvgComponent(name: SvgIconsType) {
   return icons[name]
 }
 
